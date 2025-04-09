@@ -1,4 +1,4 @@
-#import random
+import random
 
 """
 1. Write a program that prints numbers from 1 to 10
@@ -68,22 +68,57 @@ def ex_05():
 
 """
 6. Write a program that implements a game as the following description:
-
 	1. The computer generates a random number from 1 to 100
-
 	2. The user was asked to guess
-
 	3. match the user-guessing number to the generated number
+	
+	You are asked for enhancing this game by giving the level for selection. 
+        hard: 4 times, 
+        medium: 6 times, 
+        easy: 10 times
 """
 def ex_06():
-    return 0
+    def game_action(level_game):
+        for i in range(level_game):
+            guess_num = int(input("Guess a number from 1 to 100: "))
+            if guess_num == rand_num:
+                print(f"Nice! You guessed the number {guess_num}. After {i+1} time")
+                break
+            else:
+                if guess_num < rand_num:
+                    if i < level_game-1:
+                        print(f"Your guess is lower than the number. Try again.")
+                    else:
+                        print(f"You lose the game! The number is {rand_num}.")
+                elif guess_num > rand_num:
+                    if i < level_game-1:
+                        print(f"Your guess is higher than the number. Try again.")
+                    else:
+                        print(f"You lose the game! The number is {rand_num}.")
+                else:
+                    print("You lose the game! The number is {rand_num}.")
+                    break
 
+    rand_num = int(random.randint(1, 100))
+    print("This is the guess number game.\nChoose the level for this game:\n1. hard\n2. medium\n3. easy\n4. exit")
+    level = input("Your selection: ")
 
+    if level == '1':
+        game_action(4)
+
+    elif level == '2':
+        game_action(6)
+
+    elif level == '3':
+        game_action(10)
+
+    elif level == '4':
+        exit(0)
 
 if __name__ == '__main__':
     #ex_01()
     #ex_02()
     # ex_03()
     # ex_04()
-     ex_05()
-    # ex_06()
+    # ex_05()
+     ex_06()

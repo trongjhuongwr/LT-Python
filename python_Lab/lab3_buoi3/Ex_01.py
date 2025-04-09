@@ -156,3 +156,18 @@ def ex_16():
 if __name__ == '__main__':
     #Operators Exercises
     ex01()
+    # ex02()
+    # ex03()
+    # ex04()
+    # ex05()
+    # ex_06()
+    # ex_07()
+    # ex_08()
+    # ex_09()
+    # ex_10()
+    # ex_11()
+    # ex_12()
+    # ex_13()
+    # ex_14()
+    # ex_15()
+    # ex_16()

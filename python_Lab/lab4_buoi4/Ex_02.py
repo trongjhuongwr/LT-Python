@@ -17,9 +17,58 @@ Mở rộng:
 
 import random
 
-def game_action():
+def start_game():
+    print("Chào mừng bạn đến với trò chơi Tài Xỉu")
+    money = 100000
+    print(f"Số tiền hiện tại là {money:,}")
+    print()
+
+    bet = int(input("Nhập số tiền bạn muốn cược: "))
+    while True:
+        if bet <= money:
+            break
+    return money, bet
+
+def game_action(money, bet):
+    is_win = False
     dice1 = random.randint(1,6)
     dice2 = random.randint(1,6)
+    sum_dice = dice1 + dice2
+
+    start_game()
+
+    select = int(input("Mời bạn lựa chọn Tài (1) hay Xỉu (0) hoặc Huề (2): "))
+    while True:
+        if 0<=select<=2:
+            break
+
+    if sum_dice > 5:
+        if select == 1:
+            money += bet
+            print(f"Bạn thắng. Kết quả là {sum_dice}")
+            print(f"Số tiền hiện tại là {money}")
+        else:
+            money -= bet
+            print(f"Bạn thua. Kết quả là {sum_dice}")
+            print(f"Số tiền hiện tại là {money}")
+
+    elif sum_dice == 5:
+        if select == 2:
+            money += bet*3
+        else:
+            money -= bet
+            print(f"Bạn thua. Kết quả là {sum_dice}")
+            print(f"Số tiền hiện tại là {money}")
+
+    else:
+        if select == 0:
+            money += bet
+            print(f"Bạn thắng. Kết quả là {sum_dice}")
+            print(f"Số tiền hiện tại là {money}")
+        else:
+            money -= bet
+            print(f"Bạn thua. Kết quả là {sum_dice}")
+            print(f"Số tiền hiện tại là {money}")
 
 
 if __name__ == '__main__':

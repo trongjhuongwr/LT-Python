@@ -78,42 +78,50 @@ def ex_05():
         easy: 10 times
 """
 def ex_06():
-    def game_action(level_game):
-        for i in range(level_game):
+    def choose_level():
+        print("This is the guess number game.\nChoose the level for this game:\n\t1. hard\n\t2. medium\n\t3. easy\n\t4. exit")
+        level = 1
+        while True:
+            level = int(input("Your selection: "))
+            if 1 <= level <= 3:
+                break
+
+        return 10 if level == 1 else 6 if level == 2 else 4
+
+
+    def game_action(count):
+        is_win = False
+        rand_num = int(random.randint(1, 100))
+        for i in range(count):
             guess_num = int(input("Guess a number from 1 to 100: "))
             if guess_num == rand_num:
                 print(f"Nice! You guessed the number {guess_num}. After {i+1} time")
+                is_win = True
                 break
             else:
                 if guess_num < rand_num:
-                    if i < level_game-1:
-                        print(f"Your guess is lower than the number. Try again.")
-                    else:
-                        print(f"You lose the game! The number is {rand_num}.")
-                elif guess_num > rand_num:
-                    if i < level_game-1:
-                        print(f"Your guess is higher than the number. Try again.")
-                    else:
-                        print(f"You lose the game! The number is {rand_num}.")
+                    print(f"Your guess is lower than the number. Try again.")
                 else:
-                    print("You lose the game! The number is {rand_num}.")
-                    break
+                    print(f"Your guess is higher than the number. Try again.")
 
-    rand_num = int(random.randint(1, 100))
-    print("This is the guess number game.\nChoose the level for this game:\n1. hard\n2. medium\n3. easy\n4. exit")
-    level = input("Your selection: ")
+                print(f"You lose the game! The number is {rand_num}.")
+                return is_win
 
-    if level == '1':
-        game_action(4)
+    no_plays = 0
+    no_wins = 0
+    while True:
+        no_plays += 1
+        game_level = choose_level()
+        if game_action(game_level):
+            no_wins += 1
+        select = input("Do you want to play again? (Y/N)").lower()
+        if select == 'n':
+            break
 
-    elif level == '2':
-        game_action(6)
+    print(f"Plays count = {no_plays}")
+    print(f"Wins count = {no_wins}")
 
-    elif level == '3':
-        game_action(10)
 
-    elif level == '4':
-        exit(0)
 
 if __name__ == '__main__':
     #ex_01()

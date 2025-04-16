@@ -29,18 +29,19 @@ def game_action(count):
     rand_num = int(random.randint(1, 100))
     for i in range(count):
         guess_num = int(input("Guess a number from 1 to 100: "))
-        if guess_num == rand_num:
-            print(f"Nice! You guessed the number {guess_num}. After {i + 1} time")
-            is_win = True
-            break
-        else:
-            if guess_num < rand_num:
-                print(f"Your guess is lower than the number. Try again.")
+        if i <= count:
+            if guess_num == rand_num:
+                print(f"Nice! You guessed the number {guess_num}. After {i + 1} time")
+                is_win = True
+                break
             else:
-                print(f"Your guess is higher than the number. Try again.")
+                if guess_num < rand_num:
+                    print(f"Your guess is lower than the number. Try again.")
+                else:
+                    print(f"Your guess is higher than the number. Try again.")
+        else:
+            print(f"You lose the game! The number is {rand_num}.")
 
-
-    print(f"You lose the game! The number is {rand_num}.")
     return is_win
 
 if __name__ == '__main__':

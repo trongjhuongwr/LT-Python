@@ -1,5 +1,5 @@
 """
-Viết 1 game chgo phép người dùng đoán số từ 1 đến 100.
+Viết 1 game cho phép người dùng đoán số từ 1 đến 100.
 Game có 3 cấp độ chơi:
     - dễ - đoán tối đa 9 lần
     - vừa - đoán tối đa 6 lần

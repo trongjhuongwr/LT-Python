@@ -17,59 +17,94 @@ Mở rộng:
 
 import random
 
-def start_game():
-    print("Chào mừng bạn đến với trò chơi Tài Xỉu")
-    money = 100000
-    print(f"Số tiền hiện tại là {money:,}")
-    print()
+def roll_dice():
+    dice1 = random.randint(1, 6)
+    dice2 = random.randint(1, 6)
+    total = dice1 + dice2
+    return dice1, dice2, total
 
-    bet = int(input("Nhập số tiền bạn muốn cược: "))
-    while True:
-        if bet <= money:
-            break
-    return money, bet
-
-def game_action(money, bet):
-    is_win = False
-    dice1 = random.randint(1,6)
-    dice2 = random.randint(1,6)
-    sum_dice = dice1 + dice2
-
-    start_game()
-
-    select = int(input("Mời bạn lựa chọn Tài (1) hay Xỉu (0) hoặc Huề (2): "))
-    while True:
-        if 0<=select<=2:
-            break
-
-    if sum_dice > 5:
-        if select == 1:
-            money += bet
-            print(f"Bạn thắng. Kết quả là {sum_dice}")
-            print(f"Số tiền hiện tại là {money}")
-        else:
-            money -= bet
-            print(f"Bạn thua. Kết quả là {sum_dice}")
-            print(f"Số tiền hiện tại là {money}")
-
-    elif sum_dice == 5:
-        if select == 2:
-            money += bet*3
-        else:
-            money -= bet
-            print(f"Bạn thua. Kết quả là {sum_dice}")
-            print(f"Số tiền hiện tại là {money}")
-
+def dice_result(total):
+    if total < 5:
+        return "Xỉu"
+    elif total == 5:
+        return "Huề"
     else:
-        if select == 0:
-            money += bet
-            print(f"Bạn thắng. Kết quả là {sum_dice}")
-            print(f"Số tiền hiện tại là {money}")
-        else:
-            money -= bet
-            print(f"Bạn thua. Kết quả là {sum_dice}")
-            print(f"Số tiền hiện tại là {money}")
+        return "Tài"
 
+def get_bet(current_money):
+    while True:
+        bet = int(input("Nhập số tiền bạn muốn cược (10,000 trở lên): "))
+        if bet > current_money:
+            print("Tiền cược vượt quá số dư")
+        elif bet < 10000:
+            print("Số tiền phải lớn hơn 10,000")
+        else:
+            return bet
+
+def get_choice():
+    while True:
+        choice = int(input("Mời bạn lựa chọn Tài (1) hay Xỉu (0) hoặc Huề (2): "))
+        if choice == 1:
+            return "Tài"
+        elif choice == 0:
+            return "Xỉu"
+        elif choice == 2:
+            return "Huề"
+        else:
+            print("Lựa chọn không hợp lệ")
+
+
+def game_action():
+    money = 100000
+    no_plays, no_wins = 0, 0
+
+    while money > 10000:
+        print(f"Số tiền hiện tại là {money:,}")
+        choice = get_choice()
+        bet = get_bet(money)
+
+        dice1, dice2, total = roll_dice()
+        result = dice_result(total)
+
+        print(f"Kết quả của trò chơi là: {dice1} + {dice2} = {total} => {result}")
+        no_plays += 1
+        if choice.lower() == result.lower():
+            if result == "Huề":
+                winning_money = bet*3
+                print(f"Chúc mừng bạn đã thắng {winning_money} (tiền cược gấp 3 lần)")
+            else:
+                winning_money = bet
+                print(f"Chúc mừng bạn đã thắng {winning_money}")
+            money += winning_money
+            no_wins += 1
+            print(f"Số tiền hiện tại: {money:,}")
+        else:
+            print(f"Rất tiếc bạn đã mất {bet}")
+            money -= bet
+            print(f"Số tiền hiện tại: {money:,}")
+            print()
+
+        if money < 10000:
+            print("Bạn không đủ tiền để tham gia")
+            print()
+            break
+
+        while True:
+            play_again = input("Bạn có muốn chơi tiếp không (Y/N)?").lower()
+            if play_again in ["y", "n"]:
+                break
+            print("Nhập 'Y' hoặc 'N' giúp tôi.")
+        if play_again == "n":
+            break
+
+
+    print("Trò chơi kết thúc!")
+    print(f"Số lượt chơi: {no_plays}")
+    print(f"Số lượt thắng: {no_wins}")
+    print(f"Số tiền còn lại: {money}")
 
 if __name__ == '__main__':
-    pass
+    print("Chào mừng bạn đến với trò chơi Tài Xỉu")
+    game_action()
+
+

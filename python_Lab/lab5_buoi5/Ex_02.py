@@ -85,14 +85,20 @@ def ex5(list):
 
 def ex6(list):
     print(f"Danh sách: {list}")
+    def is_prime(n):
+        if n < 2:
+            return False
+        for i in range(2, math.floor(math.sqrt(n))):
+            if n % i == 0:
+                return False
+        return True
+
     prime_number_index = []
+
     for i in range(len(list)):
-        for j in range(2, int(math.sqrt(list[i]))+1):
-            count = 0
-            if list[i] % j == 0:
-                count += 1
-                if i not in prime_number_index and count < 1:
-                    prime_number_index.append(i)
+        if is_prime(list[i]):
+            prime_number_index.append(i)
+
     print(f"Vị trí các phần tử là số nguyên tố: {prime_number_index}")
 
 def ex7(list):

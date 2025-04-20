@@ -129,7 +129,7 @@ def ex8(list):
 
 def ex9(list):
     print(f"Danh sách: {list}")
-    subsequences = []
+    subseq = []
     current_subseq = [list[0]]
 
     for i in range(1, len(list)):
@@ -137,15 +137,15 @@ def ex9(list):
             current_subseq.append(list[i])
         else:
             if len(current_subseq) > 1:
-                subsequences.append(current_subseq[:])
+                subseq.append(current_subseq[:])
             current_subseq = [list[i]]
 
     if len(current_subseq) > 1:
-        subsequences.append(current_subseq)
+        subseq.append(current_subseq)
 
     print("Các đoạn con giảm liên tiếp:")
-    for subseq in subsequences:
-        print(subseq)
+    for subsequence in subseq:
+        print(subsequence)
 
 if __name__ == '__main__':
     n = int(input("Nhập số phần tử n trong danh sách: "))

@@ -102,7 +102,12 @@ def ex6(list):
     print(f"Vị trí các phần tử là số nguyên tố: {prime_number_index}")
 
 def ex7(list):
-    pass
+    print(f"Danh sách: {list}")
+    check = []
+    for i in list:
+        if list.count(i) == 1:
+            check.append(i)
+    print(f"Các phần tử duy nhất trong danh sách là: {check}")
 
 
 def ex8(list):
@@ -114,8 +119,8 @@ def ex9(list):
 
 if __name__ == '__main__':
     n = int(input("Nhập số phần tử n trong danh sách: "))
-    #ds = generate_list(n)
-    ds = [3, 5, 28, 31, 54]
+    ds = generate_list(n)
+    #ds = [3, 3, 54, 28, 28, 31, 54]
     while True:
         os.system("cls")
         select = menu()

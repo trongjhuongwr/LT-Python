@@ -111,11 +111,41 @@ def ex7(list):
 
 
 def ex8(list):
-    pass
+    print(f"Danh sách: {list}")
+    unique_numbers = []
+    count = []
+    for num in list:
+        if num not in unique_numbers:
+            unique_numbers.append(num)
+            count.append(0)
+    for i in range(len(unique_numbers)):
+        for num in list:
+            if num == unique_numbers[i]:
+                count[i] += 1
+
+    for i in range(len(unique_numbers)):
+        print(f"Giá trị {unique_numbers[i]}: {count[i]} lần")
 
 
 def ex9(list):
-    pass
+    print(f"Danh sách: {list}")
+    subsequences = []
+    current_subseq = [list[0]]
+
+    for i in range(1, len(list)):
+        if list[i] < list[i - 1]:
+            current_subseq.append(list[i])
+        else:
+            if len(current_subseq) > 1:
+                subsequences.append(current_subseq[:])
+            current_subseq = [list[i]]
+
+    if len(current_subseq) > 1:
+        subsequences.append(current_subseq)
+
+    print("Các đoạn con giảm liên tiếp:")
+    for subseq in subsequences:
+        print(subseq)
 
 if __name__ == '__main__':
     n = int(input("Nhập số phần tử n trong danh sách: "))

@@ -98,33 +98,39 @@ def ex3(list):
 # 36. Write a  Python program to get a variable with an identification number or string.
 
 # 37. Write a  Python program to find common items in two lists.
-# 38. Write a Python program to change the position of every n-th value to the
-# (n+1)th in a list.
+
+# 38. Write a Python program to change the position of every n-th value to the (n+1)th in a list.
 # Sample list: [0,1,2,3,4,5]
 # Expected Output: [1, 0, 3, 2, 5, 4]
-# 39. Write a Python program to convert a list of multiple integers into a single
-# integer.
+
+# 39. Write a Python program to convert a list of multiple integers into a single integer.
 # Sample list: [11, 33, 50]
 # Expected Output: 113350
+
 # 40. Write a Python program to split a list based on the first character of a word.
+
 # 41. Write a  Python program to create multiple lists.
+
 # 42. Write a Python program to find missing and additional values in two lists.
 # Sample data : Missing values in second list: b,a,c
 # Additional values in second list: g,h
+
 # 43. Write a  Python program to split a list into different variables.
-# 44. Write a Python program to generate groups of five consecutive numbers in a
-# list.
+
+# 44. Write a Python program to generate groups of five consecutive numbers in a list.
+
 # 45. Write a Python program to convert a pair of values into a sorted unique array.
+
 # 46. Write a Python program to select the odd items from a list.
+
 # 47. Write a Python program to insert an element before each element of a list.
-# 48. Write a  Python program to print nested lists (each list on a new line) using
-# the print() function.
+
+# 48. Write a  Python program to print nested lists (each list on a new line) using the print() function.
+
 # 49. Write a Python program to convert a list to a list of dictionaries.
-# Sample lists: ["Black", "Red", "Maroon", "Yellow"], ["#000000", "#FF0000",
-# "#800000", "#FFFF00"]
-# Expected Output: [{'color_name': 'Black', 'color_code': '#000000'}, {'color_name':
-# 'Red', 'color_code': '#FF0000'}, {'color_name': 'Maroon', 'color_code': '#800000'},
-# {'color_name': 'Yellow', 'color_code': '#FFFF00'}]
+# Sample lists: ["Black", "Red", "Maroon", "Yellow"], ["#000000", "#FF0000", "#800000", "#FFFF00"]
+# Expected Output: [{'color_name': 'Black', 'color_code': '#000000'}, {'color_name': 'Red', 'color_code': '#FF0000'}, {'color_name': 'Maroon', 'color_code': '#800000'}, {'color_name': 'Yellow', 'color_code': '#FFFF00'}]
+
 # 50. Write a  Python program to sort a list of nested dictionaries.
 
 if __name__ == '__main__':

@@ -6,16 +6,38 @@
 # 5. to find the repeated items of a tuple
 
 def ex1():
-    pass
+    tuple_numbers = tuple(('one', 'two', 'three'))
+    print(tuple_numbers[1])
 
 def ex2():
-    pass
+    tuple_numbers = tuple(('1', '2', '3'))
+    (one, two, three) = tuple_numbers
+    print(f'one: {one}')
 
 def ex3():
-    pass
+    tuple_numbers = tuple(('one', 'two', 'three'))
+    new_number = ('four', 'five', 'six')
+    tuple_numbers += new_number
+    print(tuple_numbers)
 
 def ex4():
-    pass
+    tuple_numbers = ("one", "two", "three")
+    print('one' in tuple_numbers)
+    print('four' in tuple_numbers)
 
 def ex5():
-    pass
+    tuple_numbers = ("one", "two", "three", "six", "five", "six")
+    repeat_items = []
+    for number in tuple_numbers:
+        count = tuple_numbers.count(number)
+        if count >= 2 and number not in repeat_items:
+            repeat_items.append(number)
+
+    print(repeat_items)
+
+if __name__ == '__main__':
+    # ex1()
+    # ex2()
+    # ex3()
+    # ex4()
+     ex5()

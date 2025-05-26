@@ -83,40 +83,71 @@ def ex05():
 6. Slope is (m = y2-y1/x2-x1). Find the slope and Euclidean distance between point (2, 2) and point (6,10)
 """
 def ex_06():
-    return 0
+    x1, y1 = 2, 2
+    x2, y2 = 6, 10
+
+    slope = (y2 - y1) / (x2 - x1)
+    distance = ((x2 - x1) ** 2 + (y2 - y1) ** 2) ** 0.5
+
+    print(f"Slope between (2,2) and (6,10): {slope}")
+    print(f"Euclidean distance: {distance}")
 
 
 
 """
-7. Compare the slopes in tasks 8 and 9.
+7. Compare the slopes in tasks 5 and 6.
 """
 def ex_07():
-    return 0
+    slope5 = 2  # Từ bài 5
+    slope6 = (10 - 2) / (6 - 2)  # Từ bài 6
+    print(f"Slope comparison (5 vs 6): {slope5 == slope6}")
 
 
 """
 8. Calculate the value of y (y = x^2 + 6x + 9). Try to use different x values and figure out at what x value y is going to be 0.
 """
 def ex_08():
-    return 0
+    # Phương trình: y = x² + 6x + 9
+    a = 1
+    b = 6
+    c = 9
+
+    # Tính delta
+    delta = b ** 2 - 4 * a * c
+
+    if delta < 0:
+        print("Phương trình vô nghiệm thực")
+    elif delta == 0:
+        x = -b / (2 * a)
+        print(f"Phương trình có nghiệm kép x = {x}")
+    else:
+        x1 = (-b + delta ** 0.5) / (2 * a)
+        x2 = (-b - delta ** 0.5) / (2 * a)
+        print(f"Phương trình có 2 nghiệm: x1 = {x1}, x2 = {x2}")
 
 """
 9. Find the length of 'python' and 'dragon' and make a falsy comparison statement.
 """
 def ex_09():
-    return 0
+    len_python = len('python')
+    len_dragon = len('dragon')
+    falsy_compare = len_python != len_dragon  # False vì 6 == 6
+    print(f"Falsy comparison: {falsy_compare}")
 
 """
 10. Use and operator to check if 'on' is found in both 'python' and 'dragon'
 """
 def ex_10():
-    return 0
+    check = 'on' in 'python' and 'on' in 'dragon'
+    print(f"'on' in both strings: {check}")
 
 """
 11. I hope this course is not full of jargon. Use in operator to check if jargon is in the sentence.
 """
 def ex_11():
-    return 0
+    sentence = "I hope this course is not full of jargon."
+    check = 'jargon' in sentence
+    print(f"'jargon' in sentence: {check}")
 
 
 def ex_12():
@@ -127,20 +158,29 @@ def ex_12():
 13. Find the length of the text python and convert the value to float and convert it to string
 """
 def ex_13():
-    return 0
+    length = len('python')
+    float_length = float(length)
+    str_length = str(float_length)
+    print(f"Original length: {length}")
+    print(f"Float: {float_length}, String: {str_length}")
 
 """
 14. Even numbers are divisible by 2 and the remainder is zero. How do you check if a number is even or not using python?
 """
 def ex_14():
-    return 0
+    num = int(input("Enter a number: "))
+    is_even = num % 2 == 0
+    print(f"{num} is even: {is_even}")
 
 
 """
 15. Writs a script that prompts the user to enter hours and rate per hour. Calculate pay of the person?
 """
 def ex_15():
-    return 0
+    hours = float(input("Enter hours: "))
+    rate = float(input("Enter rate per hour: "))
+    pay = hours * rate
+    print(f"Pay: {pay}")
 
 
 """
@@ -148,7 +188,9 @@ def ex_15():
 Calculate the number of seconds a person can live. Assume a person can live hundred years
 """
 def ex_16():
-    return 0
+    years = int(input("Enter number of years: "))
+    seconds = years * 365 * 24 * 60 * 60
+    print(f"You can live {seconds} seconds.")
 
 
 

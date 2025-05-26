@@ -6,16 +6,28 @@
 # 5. Given two sets of numbers, write a Python program to find the missing numbers in the second set as compared to the first and vice versa. Use the Python set.
 
 def ex1():
-    pass
+    sample_set = {5, 2, 8, 1, 9}
+    return max(sample_set), min(sample_set)
 
 def ex2():
-    pass
+    sample_set = {1, 3, 5, 7, 9}
+    value = 5
+    return value in sample_set
 
 def ex3():
-    pass
+    set1 = {1, 2, 3}
+    set2 = {4, 5, 6}
+    return set1.isdisjoint(set2)
 
 def ex4():
-    pass
+    words = ["apple", "banana", "apple", "orange", "banana", "apple"]
+    unique_words = set(words)
+    frequency = {word: words.count(word) for word in unique_words}
+    return frequency
 
 def ex5():
-    pass
+    set1 = {1, 2, 3, 4, 5}
+    set2 = {3, 4, 5, 6, 7}
+    missing_in_set2 = set1 - set2
+    missing_in_set1 = set2 - set1
+    return missing_in_set2, missing_in_set1

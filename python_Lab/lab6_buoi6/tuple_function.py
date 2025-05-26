@@ -34,10 +34,3 @@ def ex5():
             repeat_items.append(number)
 
     print(repeat_items)
-
-if __name__ == '__main__':
-    # ex1()
-    # ex2()
-    # ex3()
-    # ex4()
-     ex5()
